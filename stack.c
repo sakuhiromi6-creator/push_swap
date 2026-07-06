@@ -35,7 +35,8 @@ void	stack_add_front(t_node **top, t_node *new)
 	*top = new;
 }
 
-// costruisce lo stack a degli arg. si parte dall'ultimo cosi il primo finiscce su
+// costruisce lo stack a degli arg. si parte dall'ultimo 
+// cosi il primo finiscce su
 int	build_stack(int argc, char **argv, t_stack *a)
 {
 	int		i;
