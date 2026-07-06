@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sasdyo <sasdyo@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/28 22:41:40 by sasdyo            #+#    #+#             */
+/*   Updated: 2026/07/05 03:33:11 by sasdyo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "libft/libft.h"
+
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+}					t_node;
+
+typedef struct s_stack
+{
+	t_node			*top;
+	int				size;
+}					t_stack;
+
+void				init_stack(t_stack *stack);
+int					pars_args(int argc, char **argv);
+int					not_double(int argc, char **argv);
+int					check_range(char *str);
+int					limit_case(char *str);
+int					valid_num(char *str);
+int					build_stack(int argc, char **argv, t_stack *a);
+
+// Operations
+void				rev_rotate(t_stack *s);
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
+void				push(t_stack *src, t_stack *dest);
+void				pa(t_stack *a, t_stack *b);
+void				pb(t_stack *a, t_stack *b);
+void				rotate(t_stack *s);
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
+void				swap(t_stack *s);
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
+void				free_stack(t_stack *s);
+// void				print_stack(t_stack *s);
+
+#endif
