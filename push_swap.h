@@ -33,6 +33,7 @@ int					check_range(char *str);
 int					limit_case(char *str);
 int					valid_num(char *str);
 int					build_stack(int argc, char **argv, t_stack *a);
+int					is_sorted(t_stack *a);
 
 // Operations
 void				rev_rotate(t_stack *s);

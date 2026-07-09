@@ -35,7 +35,7 @@ void	stack_add_front(t_node **top, t_node *new)
 	*top = new;
 }
 
-// costruisce lo stack a degli arg. si parte dall'ultimo 
+// costruisce lo stack a degli arg. si parte dall'ultimo
 // cosi il primo finiscce su
 int	build_stack(int argc, char **argv, t_stack *a)
 {
@@ -70,6 +70,19 @@ void	free_stack(t_stack *s)
 	s->size = 0;
 }
 
+int	is_sorted(t_stack *a)
+{
+	t_node	*current;
+
+	current = a->top;
+	while (current->next != NULL)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
 /* questo è per vedere se effettivamente funziona e stampa quello che vuoi
 void	print_stack(t_stack *s)
 {

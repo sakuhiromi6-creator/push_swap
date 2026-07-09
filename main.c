@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-//inizializzare lo stack a vuoto
+// inizializzare lo stack a vuoto
 void	init_stack(t_stack *stack)
 {
 	stack->top = NULL;
@@ -32,8 +32,12 @@ int	main(int argc, char **argv)
 	pars_args(argc, argv);
 	not_double(argc, argv);
 	build_stack(argc, argv, &a);
-	free_stack(&a);
-	free_stack(&b);
+	if (is_sorted(&a))
+	{
+		free_stack(&a);
+		free_stack(&b);
+		return (0);
+	}
 	return (0);
 }
 

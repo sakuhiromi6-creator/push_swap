@@ -13,7 +13,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-//gestisce i casi con + e -
+// gestisce i casi limite
 int	check_range(char *str)
 {
 	if (str[0] == '+')
@@ -37,7 +37,9 @@ int	check_range(char *str)
 	return (1);
 }
 
-//gestisce il caso senza segno e chiama check_range
+// se prendo int massimo che ha 10 numeri, con segno 11
+//è troppo grande per stare in un int e andrebbe in overflow
+// quando converto con ft_atoi
 int	limit_case(char *str)
 {
 	if (str[0] == '+' || str[0] == '-')
