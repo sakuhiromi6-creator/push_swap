@@ -69,7 +69,7 @@ void	free_stack(t_stack *s)
 	s->top = NULL;
 	s->size = 0;
 }
-
+//scorre la lista e ctrl che ogni value sia minore del succ
 int	is_sorted(t_stack *a)
 {
 	t_node	*current;
@@ -83,15 +83,3 @@ int	is_sorted(t_stack *a)
 	}
 	return (1);
 }
-/* questo è per vedere se effettivamente funziona e stampa quello che vuoi
-void	print_stack(t_stack *s)
-{
-	t_node *current;
-
-	current = s->top;
-	while (current != NULL)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
-}*/
