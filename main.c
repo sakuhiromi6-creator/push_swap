@@ -38,12 +38,4 @@ int	main(int argc, char **argv)
 		free_stack(&b);
 		return (0);
 	}
-	return (0);
 }
-
-/*
-da mettere nel main per debug
-print_stack(&a);
-	sa(&a);
-	print_stack(&a);
-*/
