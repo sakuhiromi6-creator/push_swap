@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasdyo <sasdyo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 01:23:18 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/05 03:29:39 by sasdyo           ###   ########.fr       */
+/*   Updated: 2026/07/15 19:24:10 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,20 @@ void	stack_add_front(t_node **top, t_node *new)
 
 // costruisce lo stack a degli arg. si parte dall'ultimo
 // cosi il primo finiscce su
-int	build_stack(int argc, char **argv, t_stack *a)
+int	build_stack(char **numbers, t_stack *a)
 {
 	int		i;
 	t_node	*node;
 
-	i = argc - 1;
-	while (i >= 1)
+	i = 0;
+	while (numbers[i])
+		i++;
+	i--;
+	while (i >= 0)
 	{
-		node = new_node(ft_atoi(argv[i]));
+		node = new_node(ft_atoi(numbers[i]));
+		if (!node)
+			return (0);
 		stack_add_front(&a->top, node);
 		a->size++;
 		i--;
@@ -69,7 +74,8 @@ void	free_stack(t_stack *s)
 	s->top = NULL;
 	s->size = 0;
 }
-//scorre la lista e ctrl che ogni value sia minore del succ
+// scorre la lista e ctrl che ogni value sia minore del
+
 int	is_sorted(t_stack *a)
 {
 	t_node	*current;

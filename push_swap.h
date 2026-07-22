@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasdyo <sasdyo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:41:40 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/05 03:33:11 by sasdyo           ###   ########.fr       */
+/*   Updated: 2026/07/22 03:33:07 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ typedef struct s_stack
 }					t_stack;
 
 void				init_stack(t_stack *stack);
-int					pars_args(int argc, char **argv);
-int					not_double(int argc, char **argv);
+int					pars_args(char **numbers);
+int					not_double(char **numbers);
 int					check_range(char *str);
 int					limit_case(char *str);
 int					valid_num(char *str);
-int					build_stack(int argc, char **argv, t_stack *a);
+int					build_stack(char **numbers, t_stack *a);
 int					is_sorted(t_stack *a);
 
 // Operations
@@ -52,5 +52,12 @@ void				sa(t_stack *a);
 void				sb(t_stack *b);
 void				ss(t_stack *a, t_stack *b);
 void				free_stack(t_stack *s);
+
+// parser_utils
+void				free_split(char **split);
+int					count_numbers(int argc, char **argv);
+char				**create_numbers_array(int argc, char **argv);
+
+//sort_utils
 
 #endif

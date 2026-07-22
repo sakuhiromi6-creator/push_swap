@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasdyo <sasdyo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:53:29 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/04 23:53:40 by sasdyo           ###   ########.fr       */
+/*   Updated: 2026/07/15 19:37:53 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,16 @@ int	valid_num(char *str)
 // scorre tutti gli argomenti e controlla tramite validnum se sono validi,
 // altrimenti stampa errore
 
-int	pars_args(int argc, char **argv)
+int	pars_args(char **numbers)
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (numbers[i])
 	{
-		if (valid_num(argv[i]) == 0)
+		if (!valid_num(numbers[i]))
 		{
-			write(2, "Error\n", 6);
-			exit(1);
+			return (0);
 		}
 		i++;
 	}
@@ -100,22 +99,20 @@ int	pars_args(int argc, char **argv)
 }
 
 // controlla che non ci siano dubplicati
-int	not_double(int argc, char **argv)
+int	not_double(char **numbers)
 {
 	int	i;
 	int	j;
 
-	i = 1;
-	j = 0;
-	while (i < argc)
+	i = 0;
+	while (numbers[i])
 	{
 		j = i + 1;
-		while (j < argc)
+		while (numbers[j])
 		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+			if (ft_atoi(numbers[i]) == ft_atoi(numbers[j]))
 			{
-				write(2, "Error\n", 6);
-				exit(1);
+				return (0);
 			}
 			j++;
 		}

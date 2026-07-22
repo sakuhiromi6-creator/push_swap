@@ -3,7 +3,7 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = operationsP.c operationsR.c operationsRR.c operationsS.c parsing.c stack.c main.c
+SRC = operationsP.c operationsR.c operationsRR.c operationsS.c parsing.c stack.c main.c parser_utils.c 
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
