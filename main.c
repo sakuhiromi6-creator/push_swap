@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< Updated upstream
 /*   By: kcorasan <kcorasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:43:11 by sasdyo            #+#    #+#             */
 /*   Updated: 2026/07/15 23:06:04 by kcorasan         ###   ########.fr       */
+=======
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/28 22:43:11 by sasdyo            #+#    #+#             */
+/*   Updated: 2026/07/22 03:32:51 by sara             ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,42 +27,48 @@ void	init_stack(t_stack *stack)
 	stack->size = 0;
 }
 
+static void	free_all(char **numbers, t_stack *a, t_stack *b)
+{
+	free_split(numbers);
+	if (a)
+		free_stack(a);
+	if (b)
+		free_stack(b);
+}
+
+// controllino per valid
+static int	check_input(char **numbers)
+{
+	if (!pars_args(numbers) || !not_double(numbers))
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	return (1);
+}
+
+// qui manca la parte dell'algoritmo dopo is_sorted
 int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
+	char	**numbers;
 
 	if (argc < 2)
 		return (0);
+	numbers = create_numbers_array(argc, argv);
+	if (!numbers)
+		return (write(2, "Error\n", 6), 1);
+	if (!check_input(numbers))
+		return (free_all(numbers, NULL, NULL), 1);
 	init_stack(&a);
 	init_stack(&b);
-	pars_args(argc, argv);
-	not_double(argc, argv);
-	build_stack(argc, argv, &a);
-
-	t_node	*current = a.top;
-	while(current)
-	{
-		printf(" -- %d", current->value);
-		current = current->next;
-	}
-	printf("\n");
-
-	simple_sort(&a, &b);
-
-	current = a.top;
-	while(current)
-	{
-		printf(" -- %d", current->value);
-		current = current->next;
-	}
-	printf("\n");
-
+	if (!build_stack(numbers, &a))
+		return (free_all(numbers, &a, &b), 1);
 	if (is_sorted(&a))
-	{
-		free_stack(&a);
-		free_stack(&b);
-		return (0);
-	}
-	return(0);
+		return (free_all(numbers, &a, &b), 0);
+
+		
+	free_all(numbers, &a, &b);
+	return (0);
 }
