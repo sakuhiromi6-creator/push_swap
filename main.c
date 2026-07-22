@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sasdyo <sasdyo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:43:11 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/05 03:32:04 by sasdyo           ###   ########.fr       */
+/*   Updated: 2026/07/15 23:06:04 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,25 @@ int	main(int argc, char **argv)
 	pars_args(argc, argv);
 	not_double(argc, argv);
 	build_stack(argc, argv, &a);
+
+	t_node	*current = a.top;
+	while(current)
+	{
+		printf(" -- %d", current->value);
+		current = current->next;
+	}
+	printf("\n");
+
+	simple_sort(&a, &b);
+
+	current = a.top;
+	while(current)
+	{
+		printf(" -- %d", current->value);
+		current = current->next;
+	}
+	printf("\n");
+
 	if (is_sorted(&a))
 	{
 		free_stack(&a);
