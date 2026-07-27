@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/22 19:56:55 by sara              #+#    #+#             */
-/*   Updated: 2026/07/24 02:28:35 by sara             ###   ########.fr       */
+/*   Updated: 2026/07/27 03:47:38 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,13 @@ int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
+	t_count count;
 	char	**numbers;
 
+	ft_memset(&count, 0, sizeof(t_count));
 	if (argc < 2)
 		return (0);
-	numbers = create_numbers_array(argc, argv);
+	numbers = build_numbers(argc, argv);
 	if (!numbers)
 		return (write(2, "Error\n", 6), 1);
 	if (!check_input(numbers))
@@ -60,6 +62,10 @@ int	main(int argc, char **argv)
 		return (free_all(numbers, &a, &b), 1);
 	if (is_sorted(&a))
 		return (free_all(numbers, &a, &b), 0);
+	count.disorder = disorder(&a);
+	adaptive_sort(&a, &b, &count);
+	if (has_flag(argc, argv, "--bench"))
+    	print_bench(&count);
 	free_all(numbers, &a, &b);
 	return (0);
 }
