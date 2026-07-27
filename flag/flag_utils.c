@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 03:37:12 by sara              #+#    #+#             */
-/*   Updated: 2026/07/27 03:42:59 by sara             ###   ########.fr       */
+/*   Updated: 2026/07/27 11:44:56 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,18 @@ char    **build_numbers(int argc, char **argv)
         || has_flag(argc, argv, "--adaptive"))
             return(create_numbers_array(argc - 1, argv + 1));
     return(create_numbers_array(argc, argv));
+}
+
+int    has_flag(int argc, char **argv, char *flag)
+{
+	int	i;
+	i = 1;
+
+	while(i < argc)
+	{
+		if (ft_strncmp(argv[i], flag, ft_strlen(flag)) == 0)
+			return(1);
+		i++;
+	}
+	return(0);
 }
