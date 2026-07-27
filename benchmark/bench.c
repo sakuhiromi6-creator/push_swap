@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 21:23:20 by sara              #+#    #+#             */
-/*   Updated: 2026/07/26 04:05:19 by sara             ###   ########.fr       */
+/*   Updated: 2026/07/27 12:08:14 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,15 @@ void	print_strategy(t_count *count)
 
 void	ft_putfloat_fd(float n, int fd)
 {
-	int totale;
-	int intera;
-	int decimale;
+	int	totale;
+	int	intera;
+	int	decimale;
 
 	totale = (int)(n * 100);
 	intera = totale / 100;
 	decimale = totale % 100;
-
 	ft_putnbr_fd(intera, fd);
 	write(fd, ".", 1);
-
 	if (decimale < 10)
 	{
 		write(fd, "0", 1);

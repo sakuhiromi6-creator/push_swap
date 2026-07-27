@@ -6,13 +6,13 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 04:22:03 by sara              #+#    #+#             */
-/*   Updated: 2026/07/27 04:10:52 by sara             ###   ########.fr       */
+/*   Updated: 2026/07/27 12:10:35 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    medium_sort(t_stack *a, t_stack *b, t_count *count)
+void	medium_sort(t_stack *a, t_stack *b, t_count *count)
 {
-    simple_sort(a, b, count);
+	simple_sort(a, b, count);
 }

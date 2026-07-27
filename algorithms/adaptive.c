@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void adaptive_sort(t_stack *a, t_stack *b, t_count *count)
+void	adaptive_sort(t_stack *a, t_stack *b, t_count *count)
 {
 	if (count->disorder < 0.2)
 	{

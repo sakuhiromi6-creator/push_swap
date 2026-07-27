@@ -39,7 +39,7 @@ void	print_ops_line2(t_count *count)
 	ft_putnbr_fd(count->rra, 2);
 	write(2, " rrb: ", 6);
 	ft_putnbr_fd(count->rrb, 2);
-    write(2, " rrr: ", 6);
+	write(2, " rrr: ", 6);
 	ft_putnbr_fd(count->rrr, 2);
 	write(2, "\n", 1);
 }

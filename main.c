@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
-	t_count count;
+	t_count	count;
 	char	**numbers;
 
 	ft_memset(&count, 0, sizeof(t_count));
@@ -65,7 +65,7 @@ int	main(int argc, char **argv)
 	count.disorder = disorder(&a);
 	adaptive_sort(&a, &b, &count);
 	if (has_flag(argc, argv, "--bench"))
-    	print_bench(&count);
+		print_bench(&count);
 	free_all(numbers, &a, &b);
 	return (0);
 }

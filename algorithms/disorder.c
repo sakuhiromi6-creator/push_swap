@@ -14,10 +14,10 @@
 
 float	disorder(t_stack *a)
 {
-	int mistakes;
-	int total_coppie;
-	t_node *current_i;
-	t_node *current_j;
+	int		mistakes;
+	int		total_coppie;
+	t_node	*current_i;
+	t_node	*current_j;
 
 	mistakes = 0;
 	total_coppie = 0;
