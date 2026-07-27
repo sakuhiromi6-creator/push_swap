@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcorasan <kcorasan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:41:40 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/22 20:07:35 by kcorasan         ###   ########.fr       */
+/*   Updated: 2026/07/24 02:46:53 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,5 @@ int					count_numbers(int argc, char **argv);
 char				**create_numbers_array(int argc, char **argv);
 
 //sort_utils
-void				simple_sort(t_stack *a, t_stack *b);
 
 #endif

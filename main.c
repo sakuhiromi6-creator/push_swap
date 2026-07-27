@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kcorasan <kcorasan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/28 22:43:11 by sasdyo            #+#    #+#             */
-/*   Updated: 2026/07/22 19:55:57 by kcorasan         ###   ########.fr       */
+/*   Created: 2026/07/22 19:56:55 by sara              #+#    #+#             */
+/*   Updated: 2026/07/24 02:28:35 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,25 +60,6 @@ int	main(int argc, char **argv)
 		return (free_all(numbers, &a, &b), 1);
 	if (is_sorted(&a))
 		return (free_all(numbers, &a, &b), 0);
-
-	t_node	*current = a.top;
-	while(current)
-	{
-		printf(" -- %d", current->value);
-		current = current->next;
-	}
-	printf("\n");
-
-	simple_sort(&a, &b);
-
-	current = a.top;
-	while(current)
-	{
-		printf(" -- %d", current->value);
-		current = current->next;
-	}
-	printf("\n");
-		
 	free_all(numbers, &a, &b);
 	return (0);
 }

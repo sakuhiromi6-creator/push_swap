@@ -1,9 +1,9 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I.
 
-SRC = operationsP.c operationsR.c operationsRR.c operationsS.c parsing.c stack.c main.c parser_utils.c simple_sort.c 
+SRC = main.c $(wildcard benchmark/*.c) $(wildcard parser/*.c) $(wildcard stack/*.c) $(wildcard algorithms/*.c) $(wildcard operations/*.c)
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
