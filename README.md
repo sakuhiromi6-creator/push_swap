@@ -62,24 +62,30 @@ push_swap/
 ├── main.c
 ├── push_swap.h
 ├── Makefile
+├── README.md
 ├── libft/
 ├── algorithms/
-│ ├── adaptive.c
-│ ├── simple_sort.c
-│ ├── medium_sort.c
-│ └── complex_sort.c
+│   ├── adaptive.c
+│   ├── simple_sort.c
+│   ├── medium.c
+│   ├── complex.c
+│   └── disorder.c
 ├── benchmark/
-│ └── bench.c
+│   ├── bench.c
+│   └── bench_utils.c
+├── flag/
+│   └── flag_utils.c
 ├── operations/
-│ ├── operationsP.c
-│ ├── operationsR.c
-│ ├── operationsRR.c
-│ └── operationsS.c
+│   ├── operationsP.c
+│   ├── operationsR.c
+│   ├── operationsRR.c
+│   └── operationsS.c
 ├── parser/
-│ ├── parsing.c
-│ └── parser_utils.c
+│   ├── parsing.c
+│   ├── parser_utils.c
+│   └── parser_utils2.c
 └── stack/
-└── stack.c
+    └── stack.c
 
 ## Algorithms
 
