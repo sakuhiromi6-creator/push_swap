@@ -56,37 +56,6 @@ The program prints `Error` on stderr for:
 | rrb | Reverse rotate stack b (last becomes first) |
 | rrr | rra and rrb at the same time |
 
-## Project Structure
-
-push_swap/
-├── main.c
-├── push_swap.h
-├── Makefile
-├── README.md
-├── libft/
-├── algorithms/
-│   ├── adaptive.c
-│   ├── simple_sort.c
-│   ├── medium.c
-│   ├── complex.c
-│   └── disorder.c
-├── benchmark/
-│   ├── bench.c
-│   └── bench_utils.c
-├── flag/
-│   └── flag_utils.c
-├── operations/
-│   ├── operationsP.c
-│   ├── operationsR.c
-│   ├── operationsRR.c
-│   └── operationsS.c
-├── parser/
-│   ├── parsing.c
-│   ├── parser_utils.c
-│   └── parser_utils2.c
-└── stack/
-    └── stack.c
-
 ## Algorithms
 
 ### Simple Sort - O(n²)
