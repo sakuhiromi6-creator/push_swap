@@ -20,9 +20,9 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -f $(OBJ)
-	@echo "File oggetto eliminati!"
 
 fclean: clean
+	@make -C libft fclean --no-print-directory
 	@rm -f $(NAME)
 	@echo "$(NAME) eliminato!"
 
