@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:41:40 by sara              #+#    #+#             */
-/*   Updated: 2026/07/28 05:11:28 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/12 20:07:56 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 typedef struct s_node
 {
 	int				value;
+	int				rank;
 	struct s_node	*next;
 }					t_node;
 
@@ -78,6 +79,7 @@ void				sa(t_stack *a, t_count *count);
 void				sb(t_stack *b, t_count *count);
 void				ss(t_stack *a, t_stack *b, t_count *count);
 void				free_stack(t_stack *s);
+void				init_stacks(t_stack *a, t_stack *b);
 
 // parser_utils
 void				free_split(char **split);
@@ -90,7 +92,14 @@ float				disorder(t_stack *a);
 void				simple_sort(t_stack *a, t_stack *b, t_count *count);
 void				adaptive_sort(t_stack *a, t_stack *b, t_count *count);
 void				complex_sort(t_stack *a, t_stack *b, t_count *count);
+int	is_index_near(t_stack *stack, int index);
+void	move_stack(t_stack *stack, int index, int fw, t_count *count);
 void				medium_sort(t_stack *a, t_stack *b, t_count *count);
+void				assign_rank(t_stack *a);
+void				finish_sort(t_stack *a, t_stack *b, t_count *count);
+int					get_chunk_size(int size);
+int    find_chunk_pos(t_stack *a, int chunk, int chunk_size);
+void    finish_sort_medium(t_stack *a, t_stack *b, t_count *count);
 
 // bench
 void				print_operations(t_count *count);
@@ -100,7 +109,7 @@ void				print_disorder(t_count *count);
 void				print_bench(t_count *count);
 void				print_ops_line1(t_count *count);
 void				print_ops_line2(t_count *count);
-int					has_flag(int argc, char **argv, char *flag);
+int					has_flag(char **argv, char *flag);
 
 char				**build_numbers(int argc, char **argv);
 

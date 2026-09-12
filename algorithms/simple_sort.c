@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 15:52:35 by kcorasan          #+#    #+#             */
-/*   Updated: 2026/07/27 04:02:23 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/07 08:36:10 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	find_min(t_stack *stack)
 }
 
 // check if has to go fw or bw
-static int	is_index_near(t_stack *stack, int index)
+int	is_index_near(t_stack *stack, int index)
 {
 	if (index <= stack->size / 2)
 		return (1);
@@ -47,7 +47,7 @@ static int	is_index_near(t_stack *stack, int index)
 }
 
 // move stack
-static void	move_stack(t_stack *stack, int index, int fw, t_count *count)
+void	move_stack(t_stack *stack, int index, int fw, t_count *count)
 {
 	if (!fw)
 		index = stack->size - index;
@@ -62,7 +62,7 @@ static void	move_stack(t_stack *stack, int index, int fw, t_count *count)
 }
 
 // put all back in a
-static void	finish_sort(t_stack *a, t_stack *b, t_count *count)
+void	finish_sort(t_stack *a, t_stack *b, t_count *count)
 {
 	while (b->size > 0)
 		pa(a, b, count);

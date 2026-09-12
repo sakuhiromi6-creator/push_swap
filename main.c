@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:43:11 by sara              #+#    #+#             */
-/*   Updated: 2026/07/28 05:11:12 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/02 03:36:47 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ static int	check_input(char **numbers)
 	return (1);
 }
 
+static void	run_sort(t_stack *a, t_stack *b, t_count *count, char **argv)
+{
+	count->disorder = disorder(a);
+	adaptive_sort(a, b, count);
+	if (has_flag(argv, "--bench"))
+		print_bench(count);
+}
+
 // qui manca la parte dell'algoritmo dopo is_sorted
 int	main(int argc, char **argv)
 {
@@ -56,16 +64,17 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	if (!check_input(numbers))
 		return (free_all(numbers, NULL, NULL), 1);
-	init_stack(&a);
-	init_stack(&b);
+	init_stacks(&a, &b);
 	if (!build_stack(numbers, &a))
 		return (free_all(numbers, &a, &b), 1);
+	assign_rank(&a);
 	if (is_sorted(&a))
+	{
+		if (has_flag(argv, "--bench"))
+			print_bench(&count);
 		return (free_all(numbers, &a, &b), 0);
-	count.disorder = disorder(&a);
-	adaptive_sort(&a, &b, &count);
-	if (has_flag(argc, argv, "--bench"))
-		print_bench(&count);
+	}
+	run_sort(&a, &b, &count, argv);
 	free_all(numbers, &a, &b);
 	return (0);
 }
