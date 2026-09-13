@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:43:11 by sara              #+#    #+#             */
-/*   Updated: 2026/09/02 03:36:47 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 16:28:55 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	check_input(char **numbers)
 static void	run_sort(t_stack *a, t_stack *b, t_count *count, char **argv)
 {
 	count->disorder = disorder(a);
-	adaptive_sort(a, b, count);
+	select_strategy(argv, a, b, count);
 	if (has_flag(argv, "--bench"))
 		print_bench(count);
 }
@@ -56,7 +56,6 @@ int	main(int argc, char **argv)
 	t_count	count;
 	char	**numbers;
 
-	ft_memset(&count, 0, sizeof(t_count));
 	if (argc < 2)
 		return (0);
 	numbers = build_numbers(argc, argv);
@@ -64,10 +63,8 @@ int	main(int argc, char **argv)
 		return (write(2, "Error\n", 6), 1);
 	if (!check_input(numbers))
 		return (free_all(numbers, NULL, NULL), 1);
-	init_stacks(&a, &b);
-	if (!build_stack(numbers, &a))
+	if (!init_sort(&a, &b, &count, numbers))
 		return (free_all(numbers, &a, &b), 1);
-	assign_rank(&a);
 	if (is_sorted(&a))
 	{
 		if (has_flag(argv, "--bench"))

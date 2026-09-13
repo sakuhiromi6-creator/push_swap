@@ -6,18 +6,34 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 03:37:12 by sara              #+#    #+#             */
-/*   Updated: 2026/07/30 22:30:25 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 16:37:57 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	count_flags(int argc, char **argv)
+{
+	int	i;
+	int	count;
+
+	i = 1;
+	count = 0;
+	while (i < argc && ft_strncmp(argv[i], "--", 2) == 0)
+	{
+		count++;
+		i++;
+	}
+	return (count);
+}
+
 char	**build_numbers(int argc, char **argv)
 {
-	if (has_flag(argv, "--bench") || has_flag(argv, "--simple")
-		|| has_flag(argv, "--medium") || has_flag(argv, "--complex")
-		|| has_flag(argv, "--adaptive"))
-		return (create_numbers_array(argc - 1, argv + 1));
+	int	flags;
+
+	flags = count_flags(argc, argv);
+	if (flags > 0)
+		return (create_numbers_array(argc - flags, argv + flags));
 	return (create_numbers_array(argc, argv));
 }
 

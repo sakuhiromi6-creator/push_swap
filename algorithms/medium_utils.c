@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 19:51:13 by sara              #+#    #+#             */
-/*   Updated: 2026/09/12 20:12:18 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 16:02:19 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ static void	move_stack_b(t_stack *stack, int index, int fw, t_count *count)
 	}
 }
 
-void    finish_sort_medium(t_stack *a, t_stack *b, t_count *count)
+void	finish_sort_medium(t_stack *a, t_stack *b, t_count *count)
 {
-    int pos;
-    int fw;
-    
-    while(b->size > 0)
-    {
-        pos = find_max_pos(b);
-        fw = is_index_near(b, pos);
-        move_stack_b(b, pos, fw, count);
-        pa(a, b, count);
-    }    
+	int	pos;
+	int	fw;
+
+	while (b->size > 0)
+	{
+		pos = find_max_pos(b);
+		fw = is_index_near(b, pos);
+		move_stack_b(b, pos, fw, count);
+		pa(a, b, count);
+	}
 }

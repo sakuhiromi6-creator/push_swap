@@ -54,30 +54,30 @@ int	get_chunk_size(int size)
 	return (size / chunks);
 }
 
-int    find_chunk_pos(t_stack *a, int chunk, int chunk_size)
+int	find_chunk_pos(t_stack *a, int chunk, int chunk_size)
 {
-	t_node *ptn_a;
-	int	pos;
+	t_node	*ptn_a;
+	int		pos;
 
 	ptn_a = a->top;
 	pos = 0;
-	while(ptn_a)
+	while (ptn_a)
 	{
-		if(ptn_a->rank >= chunk *chunk_size && ptn_a->rank < (chunk + 1)
-			*chunk_size)
-			return(pos);
-	ptn_a = ptn_a->next;
-	pos++;
+		if (ptn_a->rank >= chunk * chunk_size && ptn_a->rank < (chunk + 1)
+			* chunk_size)
+			return (pos);
+		ptn_a = ptn_a->next;
+		pos++;
 	}
-	return(-1);
+	return (-1);
 }
 
 void	medium_sort(t_stack *a, t_stack *b, t_count *count)
 {
-	int		chunk;
-	int		chunk_size;
-	int		pos;
-	int		fw;
+	int	chunk;
+	int	chunk_size;
+	int	pos;
+	int	fw;
 
 	pos = 0;
 	chunk = 0;

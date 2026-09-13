@@ -6,14 +6,14 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 00:18:27 by sara              #+#    #+#             */
-/*   Updated: 2026/07/27 03:53:57 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 15:31:39 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	swap(t_stack *s)
+static void	swap(t_stack *s)
 {
 	int	tmp;
 

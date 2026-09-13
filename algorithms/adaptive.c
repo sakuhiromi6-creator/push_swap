@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 20:45:23 by sara              #+#    #+#             */
-/*   Updated: 2026/07/27 04:06:47 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 16:45:41 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,28 @@ void	adaptive_sort(t_stack *a, t_stack *b, t_count *count)
 		count->strategy = "complex";
 		count->complexity = "O(n log n)";
 	}
+}
+
+void	select_strategy(char **argv, t_stack *a, t_stack *b, t_count *count)
+{
+	if (has_flag(argv, "--simple"))
+	{
+		simple_sort(a, b, count);
+		count->strategy = "simple";
+		count->complexity = "O(n^2)";
+	}
+	else if (has_flag(argv, "--medium"))
+	{
+		medium_sort(a, b, count);
+		count->strategy = "medium";
+		count->complexity = "O(n√n)";
+	}
+	else if (has_flag(argv, "--complex"))
+	{
+		complex_sort(a, b, count);
+		count->strategy = "complex";
+		count->complexity = "O(n log n)";
+	}
+	else
+		adaptive_sort(a, b, count);
 }

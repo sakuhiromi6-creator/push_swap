@@ -6,14 +6,14 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 22:37:55 by sara              #+#    #+#             */
-/*   Updated: 2026/07/28 05:10:12 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 15:31:28 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	rev_rotate(t_stack *s)
+static void	rev_rotate(t_stack *s)
 {
 	t_node	*tmp;
 	t_node	*prev;

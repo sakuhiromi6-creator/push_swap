@@ -6,7 +6,7 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:41:40 by sara              #+#    #+#             */
-/*   Updated: 2026/09/12 20:07:56 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 16:38:35 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,14 @@ int					build_stack(char **numbers, t_stack *a);
 int					is_sorted(t_stack *a);
 
 // Operations
-void				rev_rotate(t_stack *s);
 void				rra(t_stack *a, t_count *count);
 void				rrb(t_stack *b, t_count *count);
 void				rrr(t_stack *a, t_stack *b, t_count *count);
-void				push(t_stack *src, t_stack *dest);
 void				pa(t_stack *a, t_stack *b, t_count *count);
 void				pb(t_stack *a, t_stack *b, t_count *count);
-void				rotate(t_stack *s);
 void				ra(t_stack *a, t_count *count);
 void				rb(t_stack *b, t_count *count);
 void				rr(t_stack *a, t_stack *b, t_count *count);
-void				swap(t_stack *s);
 void				sa(t_stack *a, t_count *count);
 void				sb(t_stack *b, t_count *count);
 void				ss(t_stack *a, t_stack *b, t_count *count);
@@ -88,18 +84,21 @@ int					count_split(char **argv, int i);
 char				**create_numbers_array(int argc, char **argv);
 
 // sort_utils
+void				select_strategy(char **argv, t_stack *a, t_stack *b,
+						t_count *count);
 float				disorder(t_stack *a);
 void				simple_sort(t_stack *a, t_stack *b, t_count *count);
 void				adaptive_sort(t_stack *a, t_stack *b, t_count *count);
 void				complex_sort(t_stack *a, t_stack *b, t_count *count);
-int	is_index_near(t_stack *stack, int index);
-void	move_stack(t_stack *stack, int index, int fw, t_count *count);
+int					is_index_near(t_stack *stack, int index);
+void				move_stack(t_stack *stack, int index, int fw,
+						t_count *count);
 void				medium_sort(t_stack *a, t_stack *b, t_count *count);
 void				assign_rank(t_stack *a);
 void				finish_sort(t_stack *a, t_stack *b, t_count *count);
 int					get_chunk_size(int size);
-int    find_chunk_pos(t_stack *a, int chunk, int chunk_size);
-void    finish_sort_medium(t_stack *a, t_stack *b, t_count *count);
+int					find_chunk_pos(t_stack *a, int chunk, int chunk_size);
+void				finish_sort_medium(t_stack *a, t_stack *b, t_count *count);
 
 // bench
 void				print_operations(t_count *count);
@@ -112,5 +111,8 @@ void				print_ops_line2(t_count *count);
 int					has_flag(char **argv, char *flag);
 
 char				**build_numbers(int argc, char **argv);
+int					init_sort(t_stack *a, t_stack *b, t_count *count,
+						char **numbers);
+int					count_flags(int argc, char **argv);
 
 #endif

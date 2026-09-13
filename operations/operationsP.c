@@ -6,14 +6,14 @@
 /*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 04:49:40 by sara              #+#    #+#             */
-/*   Updated: 2026/07/28 05:09:54 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/13 15:31:05 by sara             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
 
-void	push(t_stack *src, t_stack *dest)
+static void	push(t_stack *src, t_stack *dest)
 {
 	t_node	*tmp;
 
