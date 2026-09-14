@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   flag_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 03:37:12 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 16:37:57 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:37:10 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	count_flags(int argc, char **argv)
+static int	count_flags(int argc, char **argv)
 {
 	int	i;
 	int	count;
@@ -27,11 +27,29 @@ int	count_flags(int argc, char **argv)
 	return (count);
 }
 
+static int	validate(char **argv, int total)
+{
+	if (has_flag(argv, "--bench"))
+		total--;
+	if (has_flag(argv, "--simple"))
+		total--;
+	else if (has_flag(argv, "--medium"))
+		total--;
+	else if (has_flag(argv, "--complex"))
+		total--;
+	if (total == 0)
+		return (1);
+	else
+		return (0);
+}
+
 char	**build_numbers(int argc, char **argv)
 {
 	int	flags;
 
 	flags = count_flags(argc, argv);
+	if (validate(argv, flags) == 0)
+		return (NULL);
 	if (flags > 0)
 		return (create_numbers_array(argc - flags, argv + flags));
 	return (create_numbers_array(argc, argv));

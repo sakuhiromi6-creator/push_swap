@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operationsRR.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 22:37:55 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 15:31:28 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:17:59 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	rra(t_stack *a, t_count *count)
 	count->rra++;
 	count->total++;
 	rev_rotate(a);
-	write(1, "rra\n", 4);
+	if (!count->is_bench)
+		write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *b, t_count *count)
@@ -42,7 +43,8 @@ void	rrb(t_stack *b, t_count *count)
 	count->rrb++;
 	count->total++;
 	rev_rotate(b);
-	write(1, "rrb\n", 4);
+	if (!count->is_bench)
+		write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack *a, t_stack *b, t_count *count)
@@ -51,5 +53,6 @@ void	rrr(t_stack *a, t_stack *b, t_count *count)
 	count->total++;
 	rev_rotate(a);
 	rev_rotate(b);
-	write(1, "rrr\n", 4);
+	if (!count->is_bench)
+		write(1, "rrr\n", 4);
 }

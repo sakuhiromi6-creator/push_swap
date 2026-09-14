@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operationsS.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 00:18:27 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 15:31:39 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:18:23 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	sa(t_stack *a, t_count *count)
 	count->sa++;
 	count->total++;
 	swap(a);
-	write(1, "sa\n", 3);
+	if (!count->is_bench)
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *b, t_count *count)
@@ -37,7 +38,8 @@ void	sb(t_stack *b, t_count *count)
 	count->sb++;
 	count->total++;
 	swap(b);
-	write(1, "sb\n", 3);
+	if (!count->is_bench)
+		write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *a, t_stack *b, t_count *count)
@@ -46,5 +48,6 @@ void	ss(t_stack *a, t_stack *b, t_count *count)
 	count->total++;
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	if (!count->is_bench)
+		write(1, "ss\n", 3);
 }

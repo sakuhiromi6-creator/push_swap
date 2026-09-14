@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operationsP.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 04:49:40 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 15:31:05 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:16:35 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	pa(t_stack *a, t_stack *b, t_count *count)
 	count->pa++;
 	count->total++;
 	push(b, a);
-	write(1, "pa\n", 3);
+	if (!count->is_bench)
+		write(1, "pa\n", 3);
 }
 
 void	pb(t_stack *a, t_stack *b, t_count *count)
@@ -40,5 +41,6 @@ void	pb(t_stack *a, t_stack *b, t_count *count)
 	count->pb++;
 	count->total++;
 	push(a, b);
-	write(1, "pb\n", 3);
+	if (!count->is_bench)
+		write(1, "pb\n", 3);
 }

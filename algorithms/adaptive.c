@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adaptive.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 20:45:23 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 16:45:41 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:15:27 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	adaptive_sort(t_stack *a, t_stack *b, t_count *count)
 
 void	select_strategy(char **argv, t_stack *a, t_stack *b, t_count *count)
 {
+	if (has_flag(argv, "--bench"))
+		count->is_bench = 1;
+	else
+		count->is_bench = 0;
 	if (has_flag(argv, "--simple"))
 	{
 		simple_sort(a, b, count);

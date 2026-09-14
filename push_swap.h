@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sara <sara@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: kcorasan <kcorasan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 22:41:40 by sara              #+#    #+#             */
-/*   Updated: 2026/09/13 16:38:35 by sara             ###   ########.fr       */
+/*   Updated: 2026/09/14 17:37:00 by kcorasan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,20 @@ typedef struct s_count
 	int				rrb;
 	int				rrr;
 
+	int				is_bench;
+
 	float			disorder;
 
 	char			*strategy;
 	char			*complexity;
 
 }					t_count;
+
+typedef struct s_pair
+{
+	int				rank;
+	int				value;
+}					t_pair;
 
 void				init_stack(t_stack *stack);
 int					pars_args(char **numbers);
@@ -99,6 +107,8 @@ void				finish_sort(t_stack *a, t_stack *b, t_count *count);
 int					get_chunk_size(int size);
 int					find_chunk_pos(t_stack *a, int chunk, int chunk_size);
 void				finish_sort_medium(t_stack *a, t_stack *b, t_count *count);
+t_pair				*complex_create_ranks(t_stack *stack);
+void				complex_free_ranks(t_pair *rank_array, t_stack *stack);
 
 // bench
 void				print_operations(t_count *count);
@@ -113,6 +123,5 @@ int					has_flag(char **argv, char *flag);
 char				**build_numbers(int argc, char **argv);
 int					init_sort(t_stack *a, t_stack *b, t_count *count,
 						char **numbers);
-int					count_flags(int argc, char **argv);
 
 #endif
